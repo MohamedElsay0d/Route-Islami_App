@@ -1,0 +1,39 @@
+flutter_native_splash:
+
+  color: "#202020"  
+  color_dark: "#FFFFFF"
+  # platform-specific color. will override general color if active:
+  color_android: "#202020"
+  color_dark_android: "#FFFFFF"
+  color_ios: "#202020"
+  color_dark_ios: "#FFFFFF"
+  color_web: "#202020"
+  color_dark_web: "#FFFFFF"
+  # png file and should be sized for 4x pixel density.
+  image:                assets/images/PNG/splash_image.png
+  image_dark:          assets/images/PNG/splash_image_light.png
+  branding:      assets/images/PNG/branding.png
+  branding_dark: assets/images/PNG/branding.png #======================== Required ==================
+  branding_mode: bottom                
+  branding_bottom_padding: 24          
+  branding_bottom_padding_android: 24  
+  branding_bottom_padding_ios: 24      
+
+  fullscreen: true                
+  
+  #! ANDROID 12+ configuration:
+  android_12:
+    color: "#202020"
+    color_dark: "#FFFFFF" 
+    # with background: 960×960 px (fit within circle 640px in diameter)    
+    image: assets/images/PNG/android12_splash.png
+    image_dark: assets/images/PNG/android12_splash_light.png  
+
+    icon_background_color: "#202020"
+    icon_background_color_dark: "#FFFFFF"
+    branding: assets/images/PNG/branding.png
+    branding_dark: assets/images/PNG/branding.png
+    branding_mode: bottom
+    branding_bottom_padding: 24
+    branding_bottom_padding_android: 24
+    branding_bottom_padding_ios: 24
