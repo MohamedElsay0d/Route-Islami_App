@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:islami_app/views/onboarding_screen.dart';
+import 'package:islami_app/features/onboarding/presentation/onboarding_screen.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
