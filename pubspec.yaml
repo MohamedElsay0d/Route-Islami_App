@@ -32,3 +32,8 @@ flutter:
   assets:
     - assets/images/PNG/
     - assets/images/SVG/
+  fonts:
+    - family: JannaLT
+      fonts:
+        - asset: asset/fonts/JannalLT-Bold.ttf
+          weight: 700
