@@ -4,7 +4,7 @@ import 'package:islami_app/app/router.dart';
 import 'package:islami_app/core/theme/app_theme.dart';
 
 class IslamiApp extends StatelessWidget {
-  const new({super.key});
+  const IslamiApp({super.key});
 
   @override
   Widget build(BuildContext context) {

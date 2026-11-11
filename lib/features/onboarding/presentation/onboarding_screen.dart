@@ -13,7 +13,7 @@ class OnboardingScreen extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () async {
-            await SharedpreferencesService.setOnboardingseen();
+            await SharedpreferencesService.setOnboardingSeen();
             if (context.mounted) {
               context.go(AppRoutes.quran);
             }

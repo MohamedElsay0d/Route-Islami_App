@@ -3,7 +3,7 @@ import 'package:islami_app/core/services/sharedpreferences_service.dart';
 import 'package:islami_app/features/hadeth/presentation/hadeth_tab.dart';
 import 'package:islami_app/features/home/presentation/home_shell.dart';
 import 'package:islami_app/features/onboarding/presentation/onboarding_screen.dart';
-import 'package:islami_app/features/prayer_times/presentaion/prayer_times_tab.dart';
+import 'package:islami_app/features/prayer_times/presentation/prayer_times_tab.dart';
 import 'package:islami_app/features/quran/presentation/quran_tab.dart';
 import 'package:islami_app/features/radio/presentation/radio_tab.dart';
 import 'package:islami_app/features/sebha/presentation/sebha_tab.dart';
