@@ -17,7 +17,7 @@ class IslamiApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: AppTheme.light,
           darkTheme: AppTheme.dark,
-          themeMode: ThemeMode.dark,
+          themeMode: ThemeMode.system,
           routerConfig: AppRouter.router,
         );
       },
