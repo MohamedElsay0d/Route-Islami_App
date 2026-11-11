@@ -4,6 +4,6 @@ import 'package:islami_app/core/services/sharedpreferences_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SharedpreferencesService.inti();
+  await SharedpreferencesService.init();
   runApp(const IslamiApp());
 }

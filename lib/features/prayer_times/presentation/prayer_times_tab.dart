@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PrayerTimesTab extends StatelessWidget {
-  const new({super.key});
+  const PrayerTimesTab({super.key});
 
   @override
   Widget build(BuildContext context) {
