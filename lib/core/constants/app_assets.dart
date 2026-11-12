@@ -1,0 +1,9 @@
+abstract final class AppAssets {
+  static const String header = 'assets/images/PNG/header.png';
+  static const String onBoarding1 = 'assets/images/PNG/onboarding/onbroading1.png';
+  static const String onBoarding2 = 'assets/images/PNG/onboarding/onbroading2.png';
+  static const String onBoarding3 = 'assets/images/PNG/onboarding/onbroading3.png';
+  static const String onBoarding4 = 'assets/images/PNG/onboarding/onbroading4.png';
+  static const String onBoarding5 = 'assets/images/PNG/onboarding/onbroading5.png';
+
+}
