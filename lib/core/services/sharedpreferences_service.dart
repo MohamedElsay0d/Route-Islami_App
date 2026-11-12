@@ -5,13 +5,12 @@ abstract final class SharedpreferencesService {
 
   static late final SharedPreferences _pref;
 
-  static Future<void> inti() async {
+  static Future<void> init() async {
     _pref = await SharedPreferences.getInstance();
   }
 
-  static bool get isOnboardingSeen => 
-      _pref.getBool(onboardingKey) ?? false;
+  static bool get isOnboardingSeen => _pref.getBool(onboardingKey) ?? false;
 
-  static Future<void> setOnboardingseen() async =>
+  static Future<void> setOnboardingSeen() async =>
       await _pref.setBool(onboardingKey, true);
 }
