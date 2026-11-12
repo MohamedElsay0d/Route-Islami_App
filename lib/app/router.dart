@@ -9,12 +9,12 @@ import 'package:islami_app/features/radio/presentation/radio_tab.dart';
 import 'package:islami_app/features/sebha/presentation/sebha_tab.dart';
 
 abstract final class AppRoutes {
-  static final String onBoarding = '/onBoarding';
-  static final String quran = '/quran';
-  static final String hadeth = '/hadeth';
-  static final String radio = '/radio';
-  static final String sebha = '/sebha';
-  static final String prayerTimes = '/prayerTimes';
+  static const String onBoarding = '/onBoarding';
+  static const String quran = '/quran';
+  static const String hadeth = '/hadeth';
+  static const String radio = '/radio';
+  static const String sebha = '/sebha';
+  static const String prayerTimes = '/prayerTimes';
 }
 
 abstract final class AppRouter {
