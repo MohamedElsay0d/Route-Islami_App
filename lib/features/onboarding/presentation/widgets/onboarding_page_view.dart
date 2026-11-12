@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/features/onboarding/models/onboarding_page_model.dart';
 
 class OnboardingPageView extends StatelessWidget {
@@ -12,24 +13,21 @@ class OnboardingPageView extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            flex: 6,
-            child: Image.asset(page.image, fit: BoxFit.contain),
-          ),
-          const SizedBox(height: 24),
+          Image.asset(page.image),
+           SizedBox(height: 20.h),
           Text(
             page.title,
             style: textTheme.headlineSmall,
             textAlign: TextAlign.center,
           ),
+           SizedBox(height: 40.h),
           if (page.subtitle.isNotEmpty) ...[
-            const SizedBox(height: 12),
+            const SizedBox(height: 24),
             Text(
               page.subtitle,
               style: textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 24),
           ],
         ],
       ),

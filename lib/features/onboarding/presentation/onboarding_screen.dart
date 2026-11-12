@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami_app/app/router.dart';
 import 'package:islami_app/core/constants/app_assets.dart';
@@ -60,62 +61,50 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            Image.asset(AppAssets.header, height: 60),
+            Image.asset(AppAssets.header, height: 120.h),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Row(
-                children: [
-                  if (_currentIndex > 0)
-                    IconButton(
-                      onPressed: _previousPage,
-                      icon: const Icon(Icons.arrow_back),
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
+              child: isLastPage
+                  ? const SizedBox.shrink()
+                  : Align(
+                      alignment: AlignmentDirectional.centerStart,
+                      child: TextButton(
+                        onPressed: _finishOnboarding,
+                        child: const Text('Skip'),
+                      ),
                     ),
-                  const Spacer(),
-                  if (!isLastPage)
-                    TextButton(
-                      onPressed: _finishOnboarding,
-                      child: const Text('Skip'),
-                    ),
-                ],
-              ),
             ),
             Expanded(
-              child: Center(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 398),
-                  child: PageView.builder(
-                    controller: _pageController,
-                    itemCount: OnboardingRepo.pages.length,
-                    onPageChanged: (index) {
-                      setState(() => _currentIndex = index);
-                    },
-                    itemBuilder: (context, index) {
-                      return OnboardingPageView(
-                        page: OnboardingRepo.pages[index],
-                      );
-                    },
-                  ),
-                ),
+              child: PageView.builder(
+                controller: _pageController,
+                itemCount: OnboardingRepo.pages.length,
+                onPageChanged: (index) {
+                  setState(() => _currentIndex = index);
+                },
+                itemBuilder: (context, index) {
+                  return OnboardingPageView(page: OnboardingRepo.pages[index]);
+                },
               ),
             ),
-            DotsIndicator(
-              count: OnboardingRepo.pages.length,
-              currentIndex: _currentIndex,
-            ),
-            const SizedBox(height: 24),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
+            SizedBox(height: 24.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                (_currentIndex > 0)
+                    ? TextButton(onPressed: _previousPage, child: Text('Back'))
+                    : SizedBox(width: 70.w),
+                DotsIndicator(
+                  count: OnboardingRepo.pages.length,
+                  currentIndex: _currentIndex,
+                ),
+                TextButton(
                   onPressed: _isFinishing
                       ? null
                       : (isLastPage ? _finishOnboarding : _nextPage),
-                  child: Text(isLastPage ? 'Get Started' : 'Next'),
+                  child: Text(isLastPage ? 'Finish' : 'Next'),
                 ),
-              ),
+              ],
             ),
-            const SizedBox(height: 24),
           ],
         ),
       ),
