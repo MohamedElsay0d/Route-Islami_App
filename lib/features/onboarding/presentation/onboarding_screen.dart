@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami_app/app/router.dart';
+import 'package:islami_app/core/constants/app_assets.dart';
 import 'package:islami_app/core/services/sharedpreferences_service.dart';
 import 'package:islami_app/features/onboarding/data/onboarding_repo.dart';
 import 'package:islami_app/features/onboarding/presentation/widgets/dots_indicator.dart';
@@ -59,31 +60,29 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       body: SafeArea(
         child: Column(
           children: [
+            Image.asset(AppAssets.header, height: 60),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Row(
                 children: [
                   if (_currentIndex > 0)
                     IconButton(
                       onPressed: _previousPage,
                       icon: const Icon(Icons.arrow_back),
-                    )
-                  else
-                    const SizedBox(width: 48),
+                    ),
                   const Spacer(),
-                  isLastPage
-                      ? SizedBox(width: 48)
-                      : TextButton(
-                          onPressed:  _finishOnboarding,
-                          child: const Text('Skip'),
-                        ),
+                  if (!isLastPage)
+                    TextButton(
+                      onPressed: _finishOnboarding,
+                      child: const Text('Skip'),
+                    ),
                 ],
               ),
             ),
             Expanded(
               child: Center(
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 480),
+                  constraints: const BoxConstraints(maxWidth: 398),
                   child: PageView.builder(
                     controller: _pageController,
                     itemCount: OnboardingRepo.pages.length,
