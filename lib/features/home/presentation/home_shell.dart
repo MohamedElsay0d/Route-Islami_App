@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:islami_app/core/constants/app_assets.dart';
 
 class HomeShell extends StatelessWidget {
   const HomeShell({super.key, required this.navigationShell});
@@ -9,7 +10,20 @@ class HomeShell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: navigationShell,
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              '${AppAssets.homeTapBackground}/home_background${navigationShell.currentIndex + 1}.png',
+              // 'assets/images/PNG/home_taps_background/home_background1.png',
+            ),
+            fit: BoxFit.fill,
+          ),
+        ),
+        child: navigationShell,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: navigationShell.currentIndex,
         onTap: (index) {

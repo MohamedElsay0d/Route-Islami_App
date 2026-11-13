@@ -34,6 +34,7 @@ flutter:
     - assets/images/PNG/onboarding/
     - assets/data/quran/
     - assets/data/quran/suras/
+    - assets/images/PNG/home_taps_background/
   fonts:
     - family: JannaLT
       fonts:
