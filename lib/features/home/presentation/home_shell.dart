@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami_app/core/constants/app_assets.dart';
 
@@ -17,12 +18,22 @@ class HomeShell extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage(
               '${AppAssets.homeTapBackground}/home_background${navigationShell.currentIndex + 1}.png',
-              // 'assets/images/PNG/home_taps_background/home_background1.png',
             ),
             fit: BoxFit.fill,
           ),
         ),
-        child: navigationShell,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 5.w),
+          child: Column(
+            children: [
+              Image.asset(
+                AppAssets.header,
+                height: MediaQuery.of(context).size.height * 0.18,
+              ),
+              navigationShell,
+            ],
+          ),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: navigationShell.currentIndex,
