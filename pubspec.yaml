@@ -32,6 +32,8 @@ flutter:
     - assets/images/PNG/
     - assets/images/SVG/
     - assets/images/PNG/onboarding/
+    - assets/data/quran/
+    - assets/data/quran/suras/
   fonts:
     - family: JannaLT
       fonts:
