@@ -14,9 +14,9 @@ class QuranRepo {
         .toList(growable: false);
   }
 
-  Future<List<String>> getSuraAyat(int sureNumber) async {
+  Future<List<String>> getSuraAyat(int suraNumber) async {
     final content = await rootBundle.loadString(
-      '${AppAssets.surasTextPath}/$sureNumber.txt',
+      '${AppAssets.surasTextPath}/$suraNumber.txt',
     );
     return content
         .replaceFirst('\uFEFF', '')

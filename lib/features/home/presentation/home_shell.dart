@@ -23,14 +23,14 @@ class HomeShell extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 5.w),
+          padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 20.h),
           child: Column(
             children: [
               Image.asset(
                 AppAssets.header,
                 height: MediaQuery.of(context).size.height * 0.18,
               ),
-              navigationShell,
+              Expanded(child: navigationShell),
             ],
           ),
         ),
