@@ -24,7 +24,12 @@ class HomeShell extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 20.h),
+          padding: EdgeInsets.only(
+            right: 5.w,
+            top: 25.h,
+            left: 5.w,
+            bottom: 2.h,
+          ),
           child: Column(
             children: [
               Image.asset(
