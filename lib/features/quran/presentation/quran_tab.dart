@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:islami_app/app/router.dart';
 import 'package:islami_app/core/widgets/search_field.dart';
 import 'package:islami_app/features/quran/presentation/quran_controller.dart';
 import 'package:islami_app/features/quran/presentation/widgets/most_recent_section.dart';
@@ -41,7 +43,10 @@ class QuranTab extends StatelessWidget {
           if (controller.recentSuras.isNotEmpty)
             MostRecentSection(
               suras: controller.recentSuras,
-              onTap: controller.addToRecent,
+              onTap: (sura) {
+                context.push(AppRoutes.suraDetails(sura.number));
+                controller.addToRecent;
+              },
               onLongPress: controller.removeRecent,
             ),
           Padding(
@@ -64,10 +69,13 @@ class QuranTab extends StatelessWidget {
                         const Divider(indent: 84, endIndent: 16),
                     itemBuilder: (context, index) {
                       final sura = suras[index];
-    
+
                       return SuraItem(
                         sura: sura,
-                        onTap: () => controller.addToRecent(sura),
+                        onTap: () {
+                          controller.addToRecent(sura);
+                          context.push(AppRoutes.suraDetails(sura.number));
+                        },
                       );
                     },
                   ),
