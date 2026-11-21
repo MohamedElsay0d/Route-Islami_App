@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami_app/core/constants/app_assets.dart';
 
@@ -49,18 +50,47 @@ class HomeShell extends StatelessWidget {
             initialLocation: index == navigationShell.currentIndex,
           );
         },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.menu_book), label: 'Quran'),
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.auto_stories),
+            icon: SvgPicture.asset(
+              AppAssets.closedBookSVG,
+              width: 27.w,
+              height: 27.h,
+            ),
+            label: 'Quran',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppAssets.openBookSVG,
+              width: 27.w,
+              height: 27.h,
+            ),
             label: 'Hadeth',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.circle_outlined),
+            icon: SvgPicture.asset(
+              AppAssets.sebhaSVG,
+              width: 27.w,
+              height: 27.h,
+            ),
             label: 'Sebha',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.radio), label: 'Radio'),
-          BottomNavigationBarItem(icon: Icon(Icons.access_time), label: 'Time'),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppAssets.radioSVG,
+              width: 27.w,
+              height: 27.h,
+            ),
+            label: 'Radio',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              AppAssets.waveSVG,
+              width: 20.w,
+              height: 20.h,
+            ),
+            label: 'Time',
+          ),
         ],
       ),
     );

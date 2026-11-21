@@ -21,4 +21,10 @@ abstract final class AppAssets {
       'assets/images/PNG/aya_number_frame.png';
   static const String searchPrefix = 'assets/images/SVG/icons/closed_book.svg';
   static const String mostRecent = 'assets/images/PNG/mostRecent.png';
+
+  static const String closedBookSVG = 'assets/images/SVG/icons/closed_book.svg';
+  static const String openBookSVG = 'assets/images/SVG/icons/opened_book.svg';
+  static const String radioSVG = 'assets/images/SVG/icons/radio.svg';
+  static const String sebhaSVG = 'assets/images/SVG/icons/sebha.svg';
+  static const String waveSVG = 'assets/images/SVG/icons/wave.svg';
 }

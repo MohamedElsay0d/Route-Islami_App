@@ -18,6 +18,7 @@ abstract final class AppRoutes {
 }
 
 abstract final class AppRouter {
+  
   static final GoRouter router = GoRouter(
     initialLocation: SharedpreferencesService.isOnboardingSeen
         ? AppRoutes.quran
