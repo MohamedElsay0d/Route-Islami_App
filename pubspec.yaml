@@ -33,6 +33,7 @@ flutter:
     - assets/images/SVG/
     - assets/images/PNG/onboarding/
     - assets/data/quran/
+    - assets/data/hadeth/
     - assets/data/quran/suras/
     - assets/images/PNG/home_taps_background/
     - assets/images/SVG/icons/
