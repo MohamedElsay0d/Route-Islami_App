@@ -27,4 +27,12 @@ abstract final class AppAssets {
   static const String radioSVG = 'assets/images/SVG/icons/radio.svg';
   static const String sebhaSVG = 'assets/images/SVG/icons/sebha.svg';
   static const String waveSVG = 'assets/images/SVG/icons/wave.svg';
+
+  static const String detailsHeaderLeft =
+      'assets/images/PNG/details_header_left.png';
+
+  static const String detailsHeaderRight =
+      'assets/images/PNG/details_header_right.png';
+
+  static const String mosque = 'assets/images/PNG/Mosque-02.png';
 }
