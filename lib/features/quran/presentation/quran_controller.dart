@@ -114,4 +114,11 @@ class QuranController extends ChangeNotifier {
       _recentSuras.map((item) => item.number).toList(growable: false),
     );
   }
+
+  SuraModel? suraByNumber(int number) {
+  for (final sura in _suras) {
+    if (sura.number == number) return sura;
+  }
+  return null;
+  }
 }
