@@ -14,8 +14,10 @@ class IslamiApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        Provider<QuranRepo>(create: (_) => QuranRepo()),
         ChangeNotifierProvider(
-          create: (_) => QuranController(QuranRepo(), RecentSurasRepo())..load(),
+          create: (_) =>
+              QuranController(QuranRepo(), RecentSurasRepo())..load(),
         ),
       ],
       child: ScreenUtilInit(

@@ -32,6 +32,7 @@ class _SearchFieldState extends State<SearchField> {
       onChanged: widget.onChange,
       textInputAction: TextInputAction.search,
       decoration: InputDecoration(
+        hintText: widget.hintText,
         prefixIcon: Icon(Icons.book),
         suffixIcon: ValueListenableBuilder<TextEditingValue>(
           valueListenable: textEditingController,
