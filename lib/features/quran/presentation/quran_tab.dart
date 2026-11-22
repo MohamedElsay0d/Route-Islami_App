@@ -44,7 +44,7 @@ class QuranTab extends StatelessWidget {
             MostRecentSection(
               suras: controller.recentSuras,
               onTap: (sura) {
-                context.push(AppRoutes.suraDetails(sura.number));
+                context.push(AppRoutes.suraDetails(sura.number), extra: sura);
                 controller.addToRecent;
               },
               onLongPress: controller.removeRecent,
@@ -74,7 +74,10 @@ class QuranTab extends StatelessWidget {
                         sura: sura,
                         onTap: () {
                           controller.addToRecent(sura);
-                          context.push(AppRoutes.suraDetails(sura.number));
+                          context.push(
+                            AppRoutes.suraDetails(sura.number),
+                            extra: sura,
+                          );
                         },
                       );
                     },

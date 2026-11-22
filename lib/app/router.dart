@@ -5,6 +5,7 @@ import 'package:islami_app/features/hadeth/presentation/hadeth_tab.dart';
 import 'package:islami_app/features/home/presentation/home_shell.dart';
 import 'package:islami_app/features/onboarding/presentation/onboarding_screen.dart';
 import 'package:islami_app/features/prayer_times/presentation/prayer_times_tab.dart';
+import 'package:islami_app/features/quran/model/sura_model.dart';
 import 'package:islami_app/features/quran/presentation/quran_tab.dart';
 import 'package:islami_app/features/quran/presentation/sura_details_screen.dart';
 import 'package:islami_app/features/radio/presentation/radio_tab.dart';
@@ -18,6 +19,7 @@ abstract final class AppRoutes {
   static const String sebha = '/sebha';
   static const String prayerTimes = '/prayerTimes';
   static String suraDetails(int number) => '$quran/sura/$number';
+  // static const String suraDetails = '$quran/sura';
 }
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -47,25 +49,9 @@ abstract final class AppRouter {
                   GoRoute(
                     path: 'sura/:suraNumber',
                     parentNavigatorKey: _rootNavigatorKey,
-                    redirect: (context, state) {
-                      final number = int.tryParse(
-                        state.pathParameters['suraNumber'] ?? '',
-                      );
-
-                      if (number == null || number < 1 || number > 114) {
-                        return AppRoutes.quran;
-                      }
-
-                      return null;
-                    },
                     builder: (context, state) {
-                      final number = int.parse(
-                        state.pathParameters['suraNumber']!,
-                      );
-
-                      debugPrint('$number');
-
-                      return SuraDetailsScreen(suraNumber: number);
+                      final sura = state.extra as SuraModel;
+                      return SuraDetailsScreen(sura: sura);
                     },
                   ),
                 ],
