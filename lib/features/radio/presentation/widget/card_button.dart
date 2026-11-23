@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CardButton extends StatelessWidget {
-  const CardButton({
+  const CardButton({super.key, 
     required this.icon,
     required this.color,
     this.onTap,

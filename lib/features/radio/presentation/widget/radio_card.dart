@@ -76,13 +76,13 @@ class RadioCard extends StatelessWidget {
                         children: [
                           CardButton(
                             icon: isPlaying ? Icons.pause : Icons.play_arrow,
-                            color: AppColors.black.withValues(alpha: 0.87),
+                            color: AppColors.black.withValues(alpha: 0.95),
                             onTap: onPlayPause,
                           ),
                           SizedBox(width: 14.w),
                           CardButton(
                             icon: isMuted ? Icons.volume_off : Icons.volume_up,
-                            color: AppColors.black.withValues(alpha: 0.54),
+                            color: AppColors.black.withValues(alpha: 0.90),
                             onTap: onMute,
                           ),
                         ],
