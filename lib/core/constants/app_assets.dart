@@ -37,4 +37,8 @@ abstract final class AppAssets {
   static const String mosque = 'assets/images/PNG/Mosque-02.png';
 
   static const String hadethsPath = 'assets/data/hadeth/';
+
+  static const String sebhaHead = 'assets/images/PNG/sebhaHead.png';
+  static const String sebhaBody = 'assets/images/PNG/SebhaBody1.png';
+
 }
