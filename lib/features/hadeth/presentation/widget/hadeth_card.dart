@@ -7,12 +7,17 @@ import 'package:islami_app/features/hadeth/model/hadeth_model.dart';
 
 class HadethCard extends StatelessWidget {
   const HadethCard({super.key, required this.hadeth});
+
   final HadethModel hadeth;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 5.0.w, vertical: 12.h),
+      margin: EdgeInsets.symmetric(
+        horizontal: 5.w,
+        vertical: 12.h,
+      ),
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: AppColors.primary,
         borderRadius: BorderRadius.circular(20.r),
@@ -20,7 +25,10 @@ class HadethCard extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 8.h),
+            padding: EdgeInsets.symmetric(
+              horizontal: 12.w,
+              vertical: 8.h,
+            ),
             child: Row(
               children: [
                 Image.asset(
@@ -29,7 +37,6 @@ class HadethCard extends StatelessWidget {
                   height: 75.h,
                   color: AppColors.darkBackground,
                 ),
-
                 Expanded(
                   child: Text(
                     hadeth.title,
@@ -44,7 +51,6 @@ class HadethCard extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Image.asset(
                   AppAssets.detailsHeaderRight,
                   width: 75.w,
@@ -54,6 +60,7 @@ class HadethCard extends StatelessWidget {
               ],
             ),
           ),
+
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),
@@ -70,6 +77,7 @@ class HadethCard extends StatelessWidget {
               ),
             ),
           ),
+
           Image.asset(
             AppAssets.mosque,
             width: double.infinity,
@@ -81,3 +89,4 @@ class HadethCard extends StatelessWidget {
     );
   }
 }
+

@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:islami_app/features/hadeth/data/hadeth_repo.dart';
 import 'package:islami_app/features/hadeth/model/hadeth_model.dart';
 import 'package:islami_app/features/hadeth/presentation/widget/hadeth_card.dart';
@@ -13,18 +15,15 @@ class HadethTab extends StatefulWidget {
 
 class _HadethTabState extends State<HadethTab> {
   late Future<List<HadethModel>> hadethList;
-  late final _pageController;
+
   @override
   void initState() {
     super.initState();
     hadethList = _loadHadeth();
-    _pageController = PageController(viewportFraction: 0.8);
   }
 
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
+  Future<List<HadethModel>> _loadHadeth() {
+    return context.read<HadethRepo>().getAllHadeth();
   }
 
   void retry() {
@@ -33,18 +32,20 @@ class _HadethTabState extends State<HadethTab> {
     });
   }
 
-  Future<List<HadethModel>> _loadHadeth() {
-    return context.read<HadethRepo>().getAllHadeth();
-  }
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<HadethModel>>(
       future: hadethList,
-      builder: ((context, snapshot) {
+      builder: (context, snapshot) {
+
+        // Loading
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         }
+
+        // Error
         if (snapshot.hasError) {
           return Center(
             child: Column(
@@ -52,26 +53,44 @@ class _HadethTabState extends State<HadethTab> {
               children: [
                 const Text('Something went wrong!'),
                 const SizedBox(height: 12),
-                ElevatedButton(onPressed: retry, child: const Text('Retry')),
+                ElevatedButton(
+                  onPressed: retry,
+                  child: const Text('Retry'),
+                ),
               ],
             ),
           );
         }
 
         final hadeths = snapshot.data ?? [];
+
+        // Empty
         if (hadeths.isEmpty) {
-          return const Center(child: Text('No Hadeth available'));
+          return const Center(
+            child: Text('No Hadeth available'),
+          );
         }
 
-        return PageView.builder(
-          controller: _pageController,
+        // Data
+        return CarouselSlider.builder(
           itemCount: hadeths.length,
-          itemBuilder: (context, index) {
-            final hadeth = hadeths[index];
-            return HadethCard(hadeth: hadeth);
+          itemBuilder: (context, index, realIndex) {
+            return HadethCard(
+              hadeth: hadeths[index],
+            );
           },
+          options: CarouselOptions(
+            height: MediaQuery.sizeOf(context).height * 0.8,
+            viewportFraction: 0.8,
+            enlargeCenterPage: true,
+            enlargeFactor: 0.15,
+            enableInfiniteScroll: true,
+            autoPlay: false,
+            initialPage: 0,
+            scrollDirection: Axis.horizontal,
+          ),
         );
-      }),
+      },
     );
   }
 }
