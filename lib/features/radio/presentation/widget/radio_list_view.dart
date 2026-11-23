@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/core/theme/app_colors.dart';
 import 'package:islami_app/features/radio/presentation/radio_controller.dart';
-import 'package:islami_app/features/radio/presentation/widget/radio_list_item.dart';
+import 'package:islami_app/features/radio/presentation/widget/radio_card.dart';
 import 'package:islami_app/features/radio/presentation/widget/radio_message_view.dart';
 import 'package:provider/provider.dart';
 
@@ -35,8 +35,14 @@ class RadioListView extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 16.h),
       itemCount: controller.radios.length,
       separatorBuilder: (context, index) => SizedBox(height: 10.h),
-      itemBuilder: (context, index) {
-        return RadioListItem(title: controller.radios[index].name);
+            itemBuilder: (context, index) {
+        final radio = controller.radios[index];
+
+        return RadioCard(
+          title: radio.name,
+          isPlaying: false,
+          isMuted: false,
+        );
       },
     );
   }

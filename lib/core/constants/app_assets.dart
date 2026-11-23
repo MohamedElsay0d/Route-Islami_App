@@ -41,4 +41,6 @@ abstract final class AppAssets {
   static const String sebhaHead = 'assets/images/PNG/sebhaHead.png';
   static const String sebhaBody = 'assets/images/PNG/SebhaBody1.png';
 
+  static const String radioMosque = 'assets/images/PNG/radio_mosque.png';
+  static const String radioBars = 'assets/images/PNG/radio_bars.png';
 }
