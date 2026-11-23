@@ -16,6 +16,7 @@ dependencies:
   intl: ^0.20.3
   provider: ^6.1.5+1
   shared_preferences: ^2.5.6
+  carousel_slider: ^5.1.2
 
 
 dev_dependencies:
@@ -33,6 +34,7 @@ flutter:
     - assets/images/SVG/
     - assets/images/PNG/onboarding/
     - assets/data/quran/
+    - assets/data/hadeth/
     - assets/data/quran/suras/
     - assets/images/PNG/home_taps_background/
     - assets/images/SVG/icons/

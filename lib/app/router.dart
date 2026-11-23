@@ -19,7 +19,6 @@ abstract final class AppRoutes {
   static const String sebha = '/sebha';
   static const String prayerTimes = '/prayerTimes';
   static String suraDetails(int number) => '$quran/sura/$number';
-  // static const String suraDetails = '$quran/sura';
 }
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
