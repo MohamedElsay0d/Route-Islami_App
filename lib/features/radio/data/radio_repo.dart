@@ -2,12 +2,13 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:islami_app/core/network/ipv4_http_client.dart';
 import 'package:islami_app/features/radio/model/radio_model.dart';
 import 'package:islami_app/features/radio/model/reciter_model.dart';
 
 class RadioRepo {
-  RadioRepo({http.Client? client}) : _client = client ?? http.Client();
-  static const String _baseURL = 'https://mp3quran.net/api/v3';
+  RadioRepo({http.Client? client}) : _client = client ?? createIPv4HttpClient();
+  static const String _baseURL = 'https://www.mp3quran.net/api/v3';
   static const String _language = 'en';
   static const Duration _timeOut = Duration(seconds: 15);
 
@@ -25,7 +26,7 @@ class RadioRepo {
   }
 
   Future<List<ReciterModel>> getReciters() async {
-    final json = await _get('/reciters') ;
+    final json = await _get('/reciters');
     final reciters = json['reciters'] as List<dynamic>? ?? const [];
     return reciters
         .map(
