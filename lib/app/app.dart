@@ -6,6 +6,8 @@ import 'package:islami_app/features/hadeth/data/hadeth_repo.dart';
 import 'package:islami_app/features/quran/data/quran_repo.dart';
 import 'package:islami_app/features/quran/data/recent_suras_repo.dart';
 import 'package:islami_app/features/quran/presentation/quran_controller.dart';
+import 'package:islami_app/features/radio/data/radio_repo.dart';
+import 'package:islami_app/features/radio/presentation/radio_controller.dart';
 import 'package:provider/provider.dart';
 
 class IslamiApp extends StatelessWidget {
@@ -16,12 +18,16 @@ class IslamiApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<QuranRepo>(create: (_) => QuranRepo()),
-        Provider<HadethRepo>(
-      create: (_) => HadethRepo(),
-    ),
+        Provider<HadethRepo>(create: (_) => HadethRepo()),
+        Provider<RadioRepo>(create: (_) => RadioRepo()),
         ChangeNotifierProvider(
           create: (_) =>
               QuranController(QuranRepo(), RecentSurasRepo())..load(),
+        ),
+        ChangeNotifierProvider(
+          lazy: false,
+          create: (context) =>
+              RadioController(context.read<RadioRepo>())..loadAll(),
         ),
       ],
       child: ScreenUtilInit(
