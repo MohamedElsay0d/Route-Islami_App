@@ -35,13 +35,23 @@ class RadioListView extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 16.h),
       itemCount: controller.radios.length,
       separatorBuilder: (context, index) => SizedBox(height: 10.h),
-            itemBuilder: (context, index) {
+      itemBuilder: (context, index) {
         final radio = controller.radios[index];
+        final isActive = controller.activeRadioId == radio.id;
 
         return RadioCard(
           title: radio.name,
-          isPlaying: false,
-          isMuted: false,
+          isPlaying: isActive && controller.isPlaying,
+          isMuted: isActive && controller.isMuted,
+          onPlayPause: () async {
+            final error = await controller.toggleRadio(radio);
+
+            if (error != null && context.mounted) {
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text(error)));
+            }
+          },
+          onMute: controller.toggleMute,
         );
       },
     );
