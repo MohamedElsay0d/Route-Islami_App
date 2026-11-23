@@ -27,4 +27,10 @@ class MoshafModel {
           .toList(growable: false),
     );
   }
+  String surahUrl(int surahNumber) {
+    final base = server.endsWith('/') ? server : '$server/';
+    final fileName = surahNumber.toString().padLeft(3, '0');
+
+    return '$base$fileName.mp3';
+  }
 }
