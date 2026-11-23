@@ -39,6 +39,6 @@ abstract final class AppAssets {
   static const String hadethsPath = 'assets/data/hadeth/';
 
   static const String sebhaHead = 'assets/images/PNG/sebhaHead.png';
-  static const String sebhaBody = 'assets/images/PNG/SebhaBody 1.png';
+  static const String sebhaBody = 'assets/images/PNG/SebhaBody1.png';
 
 }
