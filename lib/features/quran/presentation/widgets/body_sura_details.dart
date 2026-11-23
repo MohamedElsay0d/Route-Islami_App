@@ -4,11 +4,11 @@ import 'package:islami_app/core/theme/app_text_styles.dart';
 import 'package:islami_app/features/quran/presentation/sura_details_screen.dart';
 
 class BodySuraDetails extends StatelessWidget {
-  const BodySuraDetails({super.key, required this._ayatFuture, required this.widget ,required this._retry});
+  const BodySuraDetails({super.key, required this._ayatFuture, required this.widget ,required this.retry});
 
   final Future<List<String>> _ayatFuture;
   final SuraDetailsScreen widget;
-  final  _retry ;
+  final VoidCallback?  retry ;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class BodySuraDetails extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
                     ElevatedButton(
-                      onPressed: _retry,
+                      onPressed: retry,
                       child: const Text('Retry'),
                     ),
                   ],

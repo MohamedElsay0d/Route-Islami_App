@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami_app/app/router.dart';
 import 'package:islami_app/core/theme/app_theme.dart';
+import 'package:islami_app/features/hadeth/data/hadeth_repo.dart';
 import 'package:islami_app/features/quran/data/quran_repo.dart';
 import 'package:islami_app/features/quran/data/recent_suras_repo.dart';
 import 'package:islami_app/features/quran/presentation/quran_controller.dart';
@@ -15,6 +16,9 @@ class IslamiApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<QuranRepo>(create: (_) => QuranRepo()),
+        Provider<HadethRepo>(
+      create: (_) => HadethRepo(),
+    ),
         ChangeNotifierProvider(
           create: (_) =>
               QuranController(QuranRepo(), RecentSurasRepo())..load(),
